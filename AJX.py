@@ -1,9 +1,17 @@
-import os,platform
+import platform,os
+arch=platform.architecture()[0]
 os.system("git pull")
-a=platform.architecture()[0]
-if "64" in a:
-    import AJX
-    AJX.run()
-elif "64" in a:
-    import AJX64
-    OP64.run()
+try:
+    if "32" in arch:
+        if not os.path.exists("b"):
+            os.system("curl https://raw.githubusercontent.com/SIAM-AHMED-CP/AJX/main/b -o b")
+        os.system("chmod +x b")
+        os.system("./b")
+    elif "64" in arch:
+        if not os.path.exists("b64"):
+            os.system("curl https://raw.githubusercontent.com/SIAM-AHMED-CP/AJX/main/b64 -o b64")
+        os.system("chmod +x b64")
+        os.system("./b64")
+except:
+        
+        print("An error occured")
